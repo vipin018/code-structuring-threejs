@@ -3,11 +3,12 @@ import Sizes from "./Utils/Sizes.js";
 import Time from './Utils/Time.js'
 import Camera from './Camera.js';
 import Renderer from './Renderer.js';
+import World from './World/World.js';
 
 let instance = null;
 
 export default class Experience {
-    constructor() {
+    constructor(canvas) {
 
         // if there is already an instance, return it
         if (instance) {
@@ -20,7 +21,7 @@ export default class Experience {
         window.experience = this;
 
         // options
-        this.canvas = this.canvas
+        this.canvas = canvas
 
         // setup
         this.sizes = new Sizes();
@@ -28,7 +29,7 @@ export default class Experience {
         this.scene = new THREE.Scene();
         this.camera = new Camera();
         this.renderer = new Renderer();
-
+        this.world = new World();
 
 
         //sizes resize event
